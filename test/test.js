@@ -41,8 +41,8 @@ describe('testing', function() {
 
     async function initializeContractsBase(offset, subContractInitValue) {
         console.log("deploying the sub contract...");
-
         subContract = await instantiateContract(subContractWasm.source.wasm, subContractAbi, bob, subContractInitValue);
+        
         console.log("deploying the testing contract...");
         let version = offset + Math.round(Math.random() * 100);
         testingContract = await instantiateContract(testingContractWasm.source.wasm, testingContractAbi, alice, version, subContractAbi.source.hash);
